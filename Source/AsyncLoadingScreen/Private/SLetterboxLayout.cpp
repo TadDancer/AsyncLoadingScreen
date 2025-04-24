@@ -10,6 +10,8 @@
 #include "LoadingScreenSettings.h"
 #include "Widgets/Layout/SSafeZone.h"
 #include "Widgets/Layout/SDPIScaler.h"
+#include "Widgets/Text/STextBlock.h"
+#include "Widgets/Layout/SBorder.h"
 #include "SHorizontalLoadingWidget.h"
 #include "SVerticalLoadingWidget.h"
 #include "SBackgroundWidget.h"

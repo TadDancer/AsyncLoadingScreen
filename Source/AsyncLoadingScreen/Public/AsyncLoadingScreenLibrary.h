@@ -16,7 +16,7 @@
  * Async Loading Screen Function Library
  */
 UCLASS()
-class ASYNCLOADINGSCREEN_API UAsyncLoadingScreenLibrary : public UBlueprintFunctionLibrary
+class AFSASYNCLOADER_API UAsyncLoadingScreenLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 private:

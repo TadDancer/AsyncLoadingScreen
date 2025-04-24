@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class AsyncLoadingScreen : ModuleRules
+public class AFSAsyncLoader : ModuleRules
 {
-	public AsyncLoadingScreen(ReadOnlyTargetRules Target) : base(Target)
+	public AFSAsyncLoader(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
@@ -39,7 +39,9 @@ public class AsyncLoadingScreen : ModuleRules
 				"Slate",
 				"SlateCore",
 				"MoviePlayer",
-				"DeveloperSettings"
+				"DeveloperSettings",
+				"RenderCore",
+				"RHI"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
@@ -51,5 +53,7 @@ public class AsyncLoadingScreen : ModuleRules
 				// ... add any modules that your module loads dynamically here ...
 			}
 			);
+		
+		PublicDefinitions.Add("IWYU_ENABLED=1");
 	}
 }

@@ -14,6 +14,7 @@
 #include "Widgets/Layout/SScaleBox.h"
 #include "Styling/SlateBrush.h"
 #include "Framework/Text/TextLayout.h"
+#include "Widgets/SOverlay.h"
 #include "LoadingScreenSettings.generated.h"
 
 
@@ -190,7 +191,7 @@ struct FImageSequenceSettings
  * Background widget for the widget loading screen
  */
 USTRUCT(BlueprintType)
-struct ASYNCLOADINGSCREEN_API FBackgroundSettings
+struct AFSASYNCLOADER_API FBackgroundSettings
 {
 	GENERATED_BODY()
 
@@ -222,7 +223,7 @@ struct ASYNCLOADINGSCREEN_API FBackgroundSettings
  * Loading widget settings
  */
 USTRUCT(BlueprintType)
-struct ASYNCLOADINGSCREEN_API FLoadingWidgetSettings
+struct AFSASYNCLOADER_API FLoadingWidgetSettings
 {
 	GENERATED_BODY()
 
@@ -251,6 +252,14 @@ struct ASYNCLOADINGSCREEN_API FLoadingWidgetSettings
 	// Text displayed beside the animated icon
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Loading Widget Setting")
 	FText LoadingText;
+	
+	// Text displayed beside the animated icon
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Loading Widget Setting")
+    FText ShaderCaption;
+
+	// Display remaining Precompiled Shaders
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Loading Widget Setting")
+	bool bShowRemainingPrecompiles = false;
 
 	/** Is Loading Text on the right of the loading icon? Ignore this if you don't choose Loading Widget Type = Horizontal.*/
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Loading Widget Setting")
@@ -298,7 +307,7 @@ struct ASYNCLOADINGSCREEN_API FLoadingWidgetSettings
  * Tips text settings
  */
 USTRUCT(BlueprintType)
-struct ASYNCLOADINGSCREEN_API FTipSettings
+struct AFSASYNCLOADER_API FTipSettings
 {
 	GENERATED_BODY()
 
@@ -326,7 +335,7 @@ struct ASYNCLOADINGSCREEN_API FTipSettings
  * The text that displayed when loading is complete. Ignore this if you don't set "bShowLoadingCompletedText" = true
  */
 USTRUCT(BlueprintType)
-struct ASYNCLOADINGSCREEN_API FLoadingCompleteTextSettings
+struct AFSASYNCLOADER_API FLoadingCompleteTextSettings
 {
 	GENERATED_BODY()
 
@@ -363,7 +372,7 @@ struct ASYNCLOADINGSCREEN_API FLoadingCompleteTextSettings
  * Loading Screen Settings
  */
 USTRUCT(BlueprintType)
-struct ASYNCLOADINGSCREEN_API FALoadingScreenSettings
+struct AFSASYNCLOADER_API FALoadingScreenSettings
 {
 	GENERATED_BODY()	
 
@@ -665,7 +674,7 @@ struct FDualSidebarLayoutSettings
  * Async Loading Screen Settings 
  */
 UCLASS(Config = "Game", defaultconfig, meta = (DisplayName = "Async Loading Screen"))
-class ASYNCLOADINGSCREEN_API ULoadingScreenSettings : public UDeveloperSettings
+class AFSASYNCLOADER_API ULoadingScreenSettings : public UDeveloperSettings
 {
 	GENERATED_BODY()
 

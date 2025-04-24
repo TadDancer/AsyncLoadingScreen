@@ -8,11 +8,13 @@
 
 #pragma once
 
+#include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
+#include "Engine/Texture2D.h"
 
 struct FALoadingScreenSettings;
 
-class FAsyncLoadingScreenModule : public IModuleInterface
+class FAFSAsyncLoaderModule : public IModuleInterface
 {
 public:
 
@@ -41,9 +43,9 @@ public:
 	 *
 	 * @return Returns singleton instance, loading the module on demand if needed
 	 */
-	static inline FAsyncLoadingScreenModule& Get()
+	static inline FAFSAsyncLoaderModule& Get()
 	{
-		return FModuleManager::LoadModuleChecked<FAsyncLoadingScreenModule>("AsyncLoadingScreen");
+		return FModuleManager::LoadModuleChecked<FAFSAsyncLoaderModule>("AFSAsyncLoader");
 	}
 
 	/**
@@ -53,7 +55,7 @@ public:
 	 */
 	static inline bool IsAvailable()
 	{
-		return FModuleManager::Get().IsModuleLoaded("AsyncLoadingScreen");
+		return FModuleManager::Get().IsModuleLoaded("AFSAsyncLoader");
 	}
 
 	TArray<UTexture2D*> GetBackgroundImages();

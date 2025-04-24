@@ -1,9 +1,9 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "2.0.0",
+	"VersionName": "2.0.0.1",
 	"EngineVersion": "5.4.0",
-	"FriendlyName": "Async Loading Screen",
+	"FriendlyName": "AFS - Async Loading Screen",
 	"Description": "Allows you to configure a Loading Screen system in the project settings easily and automatically add a Loading Screen in your game whenever you open a new level.",
 	"Category": "Loading Screen",
 	"CreatedBy": "Truong Bui",
@@ -15,7 +15,7 @@
 	"Installed": true,
 	"Modules": [
 		{
-			"Name": "AsyncLoadingScreen",
+			"Name": "AFSAsyncLoader",
 			"Type": "Runtime",
 			"LoadingPhase": "PreLoadingScreen",
 			"TargetDenyList": [

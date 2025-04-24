@@ -7,6 +7,7 @@
  ************************************************************************************/
 
 #include "SCenterLayout.h"
+#include "Widgets/Text/STextBlock.h"
 #include "LoadingScreenSettings.h"
 #include "Widgets/Layout/SSafeZone.h"
 #include "Widgets/Layout/SDPIScaler.h"

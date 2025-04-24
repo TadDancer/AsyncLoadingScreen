@@ -7,6 +7,7 @@
  ************************************************************************************/
 
 #include "AsyncLoadingScreen.h"
+#include "CoreMinimal.h"
 #include "MoviePlayer.h"
 #include "LoadingScreenSettings.h"
 #include "SCenterLayout.h"
@@ -16,11 +17,12 @@
 #include "SDualSidebarLayout.h"
 #include "Framework/Application/SlateApplication.h"
 #include "AsyncLoadingScreenLibrary.h"
-#include "Engine/Texture2D.h"
 
-#define LOCTEXT_NAMESPACE "FAsyncLoadingScreenModule"
 
-void FAsyncLoadingScreenModule::StartupModule()
+
+#define LOCTEXT_NAMESPACE "FAFSAsyncLoaderModule"
+
+void FAFSAsyncLoaderModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
 	if (!IsRunningDedicatedServer() && FSlateApplication::IsInitialized())
@@ -29,7 +31,7 @@ void FAsyncLoadingScreenModule::StartupModule()
 				
 		if (IsMoviePlayerEnabled())
 		{
-			GetMoviePlayer()->OnPrepareLoadingScreen().AddRaw(this, &FAsyncLoadingScreenModule::PreSetupLoadingScreen);				
+			GetMoviePlayer()->OnPrepareLoadingScreen().AddRaw(this, &FAFSAsyncLoaderModule::PreSetupLoadingScreen);				
 		}		
 		
 		// If PreloadBackgroundImages option is check, load all background images into memory
@@ -45,7 +47,7 @@ void FAsyncLoadingScreenModule::StartupModule()
 	}	
 }
 
-void FAsyncLoadingScreenModule::ShutdownModule()
+void FAFSAsyncLoaderModule::ShutdownModule()
 {
 	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
 	// we call this function before unloading the module.
@@ -56,17 +58,17 @@ void FAsyncLoadingScreenModule::ShutdownModule()
 	}
 }
 
-bool FAsyncLoadingScreenModule::IsGameModule() const
+bool FAFSAsyncLoaderModule::IsGameModule() const
 {
 	return true;
 }
 
-TArray<UTexture2D*> FAsyncLoadingScreenModule::GetBackgroundImages()
+TArray<UTexture2D*> FAFSAsyncLoaderModule::GetBackgroundImages()
 {
 	return bIsStartupLoadingScreen ? StartupBackgroundImages : DefaultBackgroundImages;
 }
 
-void FAsyncLoadingScreenModule::PreSetupLoadingScreen()
+void FAFSAsyncLoaderModule::PreSetupLoadingScreen()
 {	
 	UE_LOG(LogTemp, Warning, TEXT("PreSetupLoadingScreen"));
 	const bool bIsEnableLoadingScreen = UAsyncLoadingScreenLibrary::GetIsEnableLoadingScreen();
@@ -78,7 +80,7 @@ void FAsyncLoadingScreenModule::PreSetupLoadingScreen()
 	}	
 }
 
-void FAsyncLoadingScreenModule::SetupLoadingScreen(const FALoadingScreenSettings& LoadingScreenSettings)
+void FAFSAsyncLoaderModule::SetupLoadingScreen(const FALoadingScreenSettings& LoadingScreenSettings)
 {
 	TArray<FString> MoviesList = LoadingScreenSettings.MoviePaths;
 
@@ -141,7 +143,7 @@ void FAsyncLoadingScreenModule::SetupLoadingScreen(const FALoadingScreenSettings
 	GetMoviePlayer()->SetupLoadingScreen(LoadingScreen);
 }
 
-void FAsyncLoadingScreenModule::ShuffleMovies(TArray<FString>& MoviesList)
+void FAFSAsyncLoaderModule::ShuffleMovies(TArray<FString>& MoviesList)
 {
 	if (MoviesList.Num() > 0)
 	{
@@ -157,7 +159,7 @@ void FAsyncLoadingScreenModule::ShuffleMovies(TArray<FString>& MoviesList)
 	}
 }
 
-void FAsyncLoadingScreenModule::LoadBackgroundImages()
+void FAFSAsyncLoaderModule::LoadBackgroundImages()
 {
 	// Empty all background images array
 	RemoveAllBackgroundImages();
@@ -185,17 +187,17 @@ void FAsyncLoadingScreenModule::LoadBackgroundImages()
 	}
 }
 
-void FAsyncLoadingScreenModule::RemoveAllBackgroundImages()
+void FAFSAsyncLoaderModule::RemoveAllBackgroundImages()
 {
 	StartupBackgroundImages.Empty();
 	DefaultBackgroundImages.Empty();
 }
 
-bool FAsyncLoadingScreenModule::IsPreloadBackgroundImagesEnabled()
+bool FAFSAsyncLoaderModule::IsPreloadBackgroundImagesEnabled()
 {	
 	return GetDefault<ULoadingScreenSettings>()->bPreloadBackgroundImages;
 }
 
 #undef LOCTEXT_NAMESPACE
 	
-IMPLEMENT_MODULE(FAsyncLoadingScreenModule, AsyncLoadingScreen)
+IMPLEMENT_MODULE(FAFSAsyncLoaderModule, AsyncLoadingScreen)

@@ -9,6 +9,7 @@
 #pragma once
 
 #include "SLoadingScreenLayout.h"
+#include "Widgets/SOverlay.h"
 
 struct FALoadingScreenSettings;
 struct FDualSidebarLayoutSettings;

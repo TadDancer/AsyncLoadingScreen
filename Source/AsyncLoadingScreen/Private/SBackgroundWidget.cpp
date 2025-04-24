@@ -37,7 +37,7 @@ void SBackgroundWidget::Construct(const FArguments& InArgs, const FBackgroundSet
 		LoadingImage = Cast<UTexture2D>(ImageObject);
 
 		// If IsPreloadBackgroundImagesEnabled is enabled, load from images array
-		FAsyncLoadingScreenModule& LoadingScreenModule = FAsyncLoadingScreenModule::Get();
+		FAFSAsyncLoaderModule& LoadingScreenModule = FAFSAsyncLoaderModule::Get();
 		if (LoadingScreenModule.IsPreloadBackgroundImagesEnabled())
 		{
 			TArray<UTexture2D*> BackgroundImages = LoadingScreenModule.GetBackgroundImages();

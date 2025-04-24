@@ -12,11 +12,14 @@
 #include "Widgets/Layout/SDPIScaler.h"
 #include "Widgets/Layout/SSpacer.h"
 #include "Widgets/SBoxPanel.h"
+#include "Widgets/Text/STextBlock.h"
+#include "Widgets/Layout/SBorder.h"
 #include "SHorizontalLoadingWidget.h"
 #include "SVerticalLoadingWidget.h"
 #include "SBackgroundWidget.h"
 #include "STipWidget.h"
 #include "SLoadingCompleteText.h"
+#include "Widgets/SOverlay.h"
 
 void SClassicLayout::Construct(const FArguments& InArgs, const FALoadingScreenSettings& Settings, const FClassicLayoutSettings& LayoutSettings)
 {

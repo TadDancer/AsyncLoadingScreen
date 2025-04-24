@@ -10,6 +10,7 @@
 #include "LoadingScreenSettings.h"
 #include "Widgets/Layout/SSpacer.h"
 #include "Widgets/Images/SImage.h"
+#include "Widgets/SBoxPanel.h"
 #include "Slate/DeferredCleanupSlateBrush.h"
 #include "Widgets/Text/STextBlock.h"
 

@@ -43,9 +43,9 @@ void UAsyncLoadingScreenLibrary::StopLoadingScreen()
 
 void UAsyncLoadingScreenLibrary::PreloadBackgroundImages()
 {
-	if (FAsyncLoadingScreenModule::IsAvailable())
+	if (FAFSAsyncLoaderModule::IsAvailable())
 	{
-		FAsyncLoadingScreenModule& LoadingScreenModule = FAsyncLoadingScreenModule::Get();
+		FAFSAsyncLoaderModule& LoadingScreenModule = FAFSAsyncLoaderModule::Get();
 		if (LoadingScreenModule.IsPreloadBackgroundImagesEnabled())
 		{
 			LoadingScreenModule.LoadBackgroundImages();
@@ -55,9 +55,9 @@ void UAsyncLoadingScreenLibrary::PreloadBackgroundImages()
 
 void UAsyncLoadingScreenLibrary::RemovePreloadedBackgroundImages()
 {
-	if (FAsyncLoadingScreenModule::IsAvailable())
+	if (FAFSAsyncLoaderModule::IsAvailable())
 	{
-		FAsyncLoadingScreenModule& LoadingScreenModule = FAsyncLoadingScreenModule::Get();
+		FAFSAsyncLoaderModule& LoadingScreenModule = FAFSAsyncLoaderModule::Get();
 		LoadingScreenModule.RemoveAllBackgroundImages();
 	}
 }

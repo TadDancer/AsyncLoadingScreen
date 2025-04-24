@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "CoreMinimal.h"
 #include "Widgets/SCompoundWidget.h"
 
 struct FBackgroundSettings;
