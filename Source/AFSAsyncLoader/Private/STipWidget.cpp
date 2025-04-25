@@ -9,7 +9,7 @@
 #include "STipWidget.h"
 #include "LoadingScreenSettings.h"
 #include "Widgets/Text/STextBlock.h"
-#include "AsyncLoadingScreenLibrary.h"
+#include "AFSAsyncLoaderLibrary.h"
 
 void STipWidget::Construct(const FArguments& InArgs, const FTipSettings& Settings)
 {
@@ -19,9 +19,9 @@ void STipWidget::Construct(const FArguments& InArgs, const FTipSettings& Setting
 		
 		if (Settings.bSetDisplayTipTextManually == true)
 		{			
-			if (Settings.TipText.IsValidIndex(UAsyncLoadingScreenLibrary::GetDisplayTipTextIndex()))
+			if (Settings.TipText.IsValidIndex(UAFSAsyncLoaderLibrary::GetDisplayTipTextIndex()))
 			{
-				TipIndex = UAsyncLoadingScreenLibrary::GetDisplayTipTextIndex();
+				TipIndex = UAFSAsyncLoaderLibrary::GetDisplayTipTextIndex();
 			}
 		}
 

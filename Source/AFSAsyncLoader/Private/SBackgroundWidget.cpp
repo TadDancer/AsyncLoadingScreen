@@ -12,8 +12,8 @@
 #include "Widgets/Images/SImage.h"
 #include "Widgets/Layout/SBorder.h"
 #include "Engine/Texture2D.h"
-#include "AsyncLoadingScreenLibrary.h"
-#include "AsyncLoadingScreen.h"
+#include "AFSAsyncLoaderLibrary.h"
+#include "AFSAsyncLoader.h"
 
 void SBackgroundWidget::Construct(const FArguments& InArgs, const FBackgroundSettings& Settings)
 {
@@ -24,9 +24,9 @@ void SBackgroundWidget::Construct(const FArguments& InArgs, const FBackgroundSet
 
 		if (Settings.bSetDisplayBackgroundManually == true)
 		{
-			if (Settings.Images.IsValidIndex(UAsyncLoadingScreenLibrary::GetDisplayBackgroundIndex()))
+			if (Settings.Images.IsValidIndex(UAFSAsyncLoaderLibrary::GetDisplayBackgroundIndex()))
 			{
-				ImageIndex = UAsyncLoadingScreenLibrary::GetDisplayBackgroundIndex();
+				ImageIndex = UAFSAsyncLoaderLibrary::GetDisplayBackgroundIndex();
 			}
 		}		
 		

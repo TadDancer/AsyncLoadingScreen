@@ -6,7 +6,7 @@
  *																					*
  ************************************************************************************/
 
-#include "AsyncLoadingScreen.h"
+#include "AFSAsyncLoader.h"
 #include "CoreMinimal.h"
 #include "MoviePlayer.h"
 #include "LoadingScreenSettings.h"
@@ -16,7 +16,7 @@
 #include "SSidebarLayout.h"
 #include "SDualSidebarLayout.h"
 #include "Framework/Application/SlateApplication.h"
-#include "AsyncLoadingScreenLibrary.h"
+#include "AFSAsyncLoaderLibrary.h"
 
 
 
@@ -71,7 +71,7 @@ TArray<UTexture2D*> FAFSAsyncLoaderModule::GetBackgroundImages()
 void FAFSAsyncLoaderModule::PreSetupLoadingScreen()
 {	
 	UE_LOG(LogTemp, Warning, TEXT("PreSetupLoadingScreen"));
-	const bool bIsEnableLoadingScreen = UAsyncLoadingScreenLibrary::GetIsEnableLoadingScreen();
+	const bool bIsEnableLoadingScreen = UAFSAsyncLoaderLibrary::GetIsEnableLoadingScreen();
 	if (bIsEnableLoadingScreen)
 	{
 		const ULoadingScreenSettings* Settings = GetDefault<ULoadingScreenSettings>();
@@ -95,9 +95,9 @@ void FAFSAsyncLoaderModule::SetupLoadingScreen(const FALoadingScreenSettings& Lo
 		MoviesList.Empty();
 
 		// Show specific movie if valid otherwise show original movies list
-		if (LoadingScreenSettings.MoviePaths.IsValidIndex(UAsyncLoadingScreenLibrary::GetDisplayMovieIndex()))
+		if (LoadingScreenSettings.MoviePaths.IsValidIndex(UAFSAsyncLoaderLibrary::GetDisplayMovieIndex()))
 		{
-			MoviesList.Add(LoadingScreenSettings.MoviePaths[UAsyncLoadingScreenLibrary::GetDisplayMovieIndex()]);
+			MoviesList.Add(LoadingScreenSettings.MoviePaths[UAFSAsyncLoaderLibrary::GetDisplayMovieIndex()]);
 		}
 		else
 		{
@@ -121,19 +121,19 @@ void FAFSAsyncLoaderModule::SetupLoadingScreen(const FALoadingScreenSettings& Lo
 
 		switch (LoadingScreenSettings.Layout)
 		{
-		case EAsyncLoadingScreenLayout::ALSL_Classic:
+		case EAFSAsyncLoaderLayout::ALSL_Classic:
 			LoadingScreen.WidgetLoadingScreen = SNew(SClassicLayout, LoadingScreenSettings, Settings->Classic);
 			break;
-		case EAsyncLoadingScreenLayout::ALSL_Center:
+		case EAFSAsyncLoaderLayout::ALSL_Center:
 			LoadingScreen.WidgetLoadingScreen = SNew(SCenterLayout, LoadingScreenSettings, Settings->Center);
 			break;
-		case EAsyncLoadingScreenLayout::ALSL_Letterbox:
+		case EAFSAsyncLoaderLayout::ALSL_Letterbox:
 			LoadingScreen.WidgetLoadingScreen = SNew(SLetterboxLayout, LoadingScreenSettings, Settings->Letterbox);
 			break;
-		case EAsyncLoadingScreenLayout::ALSL_Sidebar:
+		case EAFSAsyncLoaderLayout::ALSL_Sidebar:
 			LoadingScreen.WidgetLoadingScreen = SNew(SSidebarLayout, LoadingScreenSettings, Settings->Sidebar);
 			break;
-		case EAsyncLoadingScreenLayout::ALSL_DualSidebar:
+		case EAFSAsyncLoaderLayout::ALSL_DualSidebar:
 			LoadingScreen.WidgetLoadingScreen = SNew(SDualSidebarLayout, LoadingScreenSettings, Settings->DualSidebar);
 			break;
 		}
@@ -200,4 +200,4 @@ bool FAFSAsyncLoaderModule::IsPreloadBackgroundImagesEnabled()
 
 #undef LOCTEXT_NAMESPACE
 	
-IMPLEMENT_MODULE(FAFSAsyncLoaderModule, AsyncLoadingScreen)
+IMPLEMENT_MODULE(FAFSAsyncLoaderModule, AFSAsyncLoader)

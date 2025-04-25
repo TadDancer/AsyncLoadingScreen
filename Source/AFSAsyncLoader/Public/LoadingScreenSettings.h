@@ -22,7 +22,7 @@
  * Asynce Loading Screen Layouts
  */
 UENUM(BlueprintType)
-enum class EAsyncLoadingScreenLayout : uint8
+enum class EAFSAsyncLoaderLayout : uint8
 {
 	/**
 	 * The Classic is a simple, generic layout and fits well with many designs.
@@ -468,7 +468,7 @@ struct AFSASYNCLOADER_API FALoadingScreenSettings
 	 * Select async loading screen Layout. Ignore this if you choose "Show Widget Overlay = false"
 	 */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Loading Screen Settings")
-	EAsyncLoadingScreenLayout Layout = EAsyncLoadingScreenLayout::ALSL_Classic;
+	EAFSAsyncLoaderLayout Layout = EAFSAsyncLoaderLayout::ALSL_Classic;
 };
 
 /** Classic Layout settings*/

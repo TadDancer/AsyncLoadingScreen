@@ -10,7 +10,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Engine/Font.h"
 
-#define LOCTEXT_NAMESPACE "AsyncLoadingScreen"
+#define LOCTEXT_NAMESPACE "AFSAsyncLoader"
 
 FLoadingWidgetSettings::FLoadingWidgetSettings() : LoadingText(LOCTEXT("Loading", "LOADING")) {}
 //FLoadingCompleteTextSettings::FLoadingCompleteTextSettings() : LoadingCompleteText(LOCTEXT("Loading Complete", "Loading is complete! Press any key to continue...")) {}

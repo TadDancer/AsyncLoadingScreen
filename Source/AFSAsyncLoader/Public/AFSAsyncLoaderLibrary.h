@@ -10,13 +10,13 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "AsyncLoadingScreenLibrary.generated.h"
+#include "AFSAsyncLoaderLibrary.generated.h"
 
 /**
  * Async Loading Screen Function Library
  */
 UCLASS()
-class AFSASYNCLOADER_API UAsyncLoadingScreenLibrary : public UBlueprintFunctionLibrary
+class AFSASYNCLOADER_API UAFSAsyncLoaderLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 private:
